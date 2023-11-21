@@ -14,7 +14,7 @@ This step probably requires the time of a cup of coffee to finish.
 
 After the fetching and depacking processes are done, the *debootstrap* will provide a minimally bootable file system.
 
-## Change the root password and add a default user before logging into the file system of *Ubuntu-23.10-mantic-amd64*
+## Setup the root password and add a default user before logging into the file system of *Ubuntu-23.10-mantic-amd64*
 Because the fresh file system of *Ubuntu-23.10-mantic-amd64* doesn't have a password for root and also does not exist for the default user. Thus, we have to setup a password for root and create a default user for the file system of *Ubuntu-23.10-mantic-amd64*. 
 
 ### Use `mount` to mount the file system of *Ubuntu-23.10-mantic-amd64*
