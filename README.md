@@ -38,7 +38,7 @@ Because the fresh file system of *Ubuntu-23.10-mantic-amd64* doesn't have a pass
 ### Use *chroot* to switch to the file system of *Ubuntu-23.10-mantic-amd64*
 *user@host:/#* ``sudo chroot /var/lib/machines/Ubuntu-23.10-mantic-amd64 /bin/bash``
 
-There is a different prompt: *root@hpc:/#* shows in the terminal if chroot is successful. In the meantime, we could use the system tools in the file system of *Ubuntu-23.10-mantic-amd64* to setup the password for root and create a default user.
+There is a different prompt: *root@container:/#* shows in the terminal if chroot is successful. In the meantime, we could use the system tools in the file system of *Ubuntu-23.10-mantic-amd64* to setup the password for root and create a default user.
 
 #### Give a password for root
 Now you have been switched into the file system of *Ubuntu-23.10-mantic-amd64* via *chroot*. So here just enter the *passwd* to setup password for root.
