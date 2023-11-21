@@ -216,7 +216,7 @@ Ubuntu 23.10 hpc pts/0
 hpc login: 
 ```
 
-Ok, there is a normal login prompt here. It does mean everything is fine and doing well. So let's congratulate it! Please keep in mind, use ``Ctrl+]]]`` to exit it.
+Ok, there is a normal login prompt here. It does mean everything is fine and is going on. So let's congratulate it! Please keep in mind, use ``Ctrl+]]]`` to exit it.
 
 ## Boot up the file system of *Ubuntu-23.10-mantic_amd64* when host is booted up
 
