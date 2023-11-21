@@ -80,7 +80,7 @@ Clear it up by unmount all associated devices. Please keep in mind that you shou
   sudo mount -o bind /root $CONTAINER/root 2> /dev/null
 ```
 
-## Boot up the container of *Ubuntu-23.10-mantic_amd64* via Host's *systemd*
+ 
 There has been created a *root file system* and the *default user* we needed. So we just boot the container of `Ubuntu-23.10-mantic-amd64` up via *systemd-nspawn*. The *--bind /opt:/opt* is useful parameter for mapping devices between *host* and *container*.
 
 *user@host:/#* ```sudo systemd-nspawn --boot --machine=Ubuntu-23.10-mantic-amd64 --bind /opt:/opt --private-users=off```
@@ -216,6 +216,21 @@ Ubuntu 23.10 hpc pts/0
 hpc login: 
 ```
 
-Ok, there is a normal login prompt here. It does mean everything is fine and doing well. So let's congratulate it!
+Ok, there is a normal login prompt here. It does mean everything is fine and doing well. So let's congratulate it! Please keep in mind, use ``Ctrl+]]]`` to exit it.
+
+## Boot up the file system of *Ubuntu-23.10-mantic_amd64* when host is booted up
+
+It is possible to control the file system of *Ubuntu-23.10-mantic_amd64* via *systemd*. 
+
+1. Copy example of */lib/systemd/system/systemd-nspawn@.service* to */etc/systemd/system/systemd-nspawn@Ubuntu-23.10-mantic_amd64.service*
+2. Open and edit */etc/systemd/system/systemd-nspawn@Ubuntu-23.10-mantic_amd64.service*
+3. Replace the *ExecStart* to ``ExecStart=systemd-nspawn --quiet --keep-unit --boot --link-journal=try-guest -U --settings=override --machine=%i --bind /opt:/opt --private-users=off``
+4. Reload *Ubuntu-23.10-mantic_amd64.service* *user@host:/#* ``sudo systemctl daemon-reload``
+5. Start *Ubuntu-23.10-mantic_amd64.service* by *user@host:/#* ``sudo systemctl start systemd-nspawn@Ubuntu-23.10-mantic_amd64``
+6. Stop *Ubuntu-23.10-mantic_amd64.service* by *user@host:/#* ``sudo systemctl stop systemd-nspawn@Ubuntu-23.10-mantic_amd64``
+7. Enable *Ubuntu-23.10-mantic_amd64.service* by *user@host:/#* ``sudo systemctl enable systemd-nspawn@Ubuntu-23.10-mantic_amd64``
+8. Login *Ubuntu-23.10-mantic_amd64.service* by *user@host:/#* ``sudo machinectl login Ubuntu-23.10-mantic_amd64``
+
+
 
 
