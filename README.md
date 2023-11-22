@@ -36,12 +36,14 @@ Because the fresh file system of *Ubuntu-23.10-mantic-amd64* doesn't have a pass
 ```
 
 ### Use *chroot* to switch to the file system of *Ubuntu-23.10-mantic-amd64*
+The *chroot* will stack the file system of *Ubuntu-23.10-mantic-amd64* onto the original file system in this tty. Thus, anything changed during *chroot* will affect the file system of *Ubuntu-23.10-mantic-amd64*.
+
 *user@host:/#* ``sudo chroot /var/lib/machines/Ubuntu-23.10-mantic-amd64 /bin/bash``
 
 There is a different prompt: *root@container:/#* shows in the terminal if chroot is successful. In the meantime, we could use the system tools in the file system of *Ubuntu-23.10-mantic-amd64* to setup the password for root and create a default user.
 
 #### Give a password for root
-Now you have been switched into the file system of *Ubuntu-23.10-mantic-amd64* via *chroot*. So here just enter the *passwd* to setup password for root.
+Now the root file system has been switched into the file system of *Ubuntu-23.10-mantic-amd64* via *chroot*. It's supposed to be that we are running on the file system of *Ubuntu-23.10-mantic-amd64*. So here, just make some efforts to setup the password for root and create a default user.
 
 *root@container:/#* ```passwd```
 
@@ -232,5 +234,6 @@ It is possible to control the file system of *Ubuntu-23.10-mantic_amd64* via *sy
 8. Login *Ubuntu-23.10-mantic_amd64.service* by *user@host:/#* ``sudo machinectl login Ubuntu-23.10-mantic_amd64``
 
 
-
+## References
+1. (systemd-nspawn)[https://wiki.archlinux.org/title/systemd-nspawn]
 
