@@ -235,5 +235,5 @@ It is possible to control the file system of *Ubuntu-23.10-mantic_amd64* via *sy
 
 
 ## References
-1. (systemd-nspawn)[https://wiki.archlinux.org/title/systemd-nspawn]
+1. https://wiki.archlinux.org/title/systemd-nspawn
 
